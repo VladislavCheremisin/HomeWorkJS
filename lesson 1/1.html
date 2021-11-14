@@ -21,13 +21,14 @@
 <script>
   "use strict";
 
-  const temperature = prompt("Введите температуру в градусах Цельсия");
-  const C = temperature;
-  const F = temperature * (9/5)+32;
-  alert("Цельсий: " + C + ", Фаренгейт: " + F);
-
-  console.log(C);
-  console.log(F);
+  const temperatureInCelsius = Number.parseFloat(prompt("Введите температуру в \
+  градусах Цельсия"));
+  const temperatureInFahrenheit = Math.round(
+    ((temperatureInCelsius  * 9 / 5 + 32) * 100)) / 100;
+  alert(`Цельсий: ${temperatureInCelsius}, Фаренгейт: ${temperatureInFahrenheit}`);
+  
+  console.log(temperatureInCelsius);
+  console.log(temperatureInFahrenheit);
 
 </script>
 </body>

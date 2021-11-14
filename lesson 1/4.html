@@ -28,12 +28,13 @@
 <script>
   "use strict";
 
-  const UserNumber = prompt("Введите число")
-  const NumberHundred = parseInt(UserNumber % 1000 / 100);
-  const NumberDecade = parseInt(UserNumber % 100 / 10);
-  const NumberUnit = parseInt(UserNumber % 10);
+  const userNumber = prompt("Введите число")
+  const numberHundred = parseInt(userNumber % 1000 / 100);
+  const numberDecade = parseInt(userNumber % 100 / 10);
+  const numberUnit = parseInt(userNumber % 10);
 
-  alert("\"В числе " + UserNumber + " количество сотен: " + NumberHundred + ", десятков: " + NumberDecade + ", единиц: " + NumberUnit +"\"")
+  alert("\"В числе " + userNumber + " количество сотен: " + numberHundred + ",\
+  десятков: " + numberDecade + ", единиц: " + numberUnit +"\"")
 </script>
 </body>
 </html>
