@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  /**
+  * Функция делает математические операции с двумя числами, выбор операции
+  *  осуществляется с помощью параметра operation
+  * @param {number} arg1 первое число.
+  * @param {number} arg2 второе число.
+  * @returns {number} возвращает результат математической операции.
+  */
+  function mathOperation(arg1, arg2, operation) {
+    let ParameterCheck =  mathParameterCheck (operation);
+    if (!ParameterCheck) {
+      return NaN;
+    }
+    else {
+      if (operation === '+') {
+        return getSum(arg1, arg2);
+      }
+      else if (operation === '-') {
+        return  getSubtraction(arg1, arg2);
+      }
+      else if (operation === '*') {
+        return  getMultiplication(arg1, arg2);
+      }
+      else if (operation === '/') {
+        return  getDivision(arg1, arg2);
+      }
+    }    
+  }
+
+  /**
+  * Функция проверяет на валидность параметр operation
+  * @param {string} operation первое число.
+  * @returns {string} возвращает результат проверки на валидность либо false.
+  */
+  function mathParameterCheck (operation) {
+    if (operation == '+' || 
+        operation == '-' ||  
+        operation == '*' || 
+        operation == '/') {
+      return operation;
+    }
+    else {
+      return false;
+    }
+  } 
+
+  /**
+  * Функция складывает два числа
+  * @param {number} firstNumber первое число.
+  * @param {number} secondNumber второе число.
+  * @returns {number} возвращает сумму двух чисел.
+  */
+  function getSum (firstNumber, secondNumber) {
+    return firstNumber + secondNumber;
+  }
+   
+  /**
+  * Функция вычитает большее число из меньшего
+  * @param {number} firstNumber первое число.
+  * @param {number} secondNumber второе число.
+  * @returns {number} возвращает разность двух чисел.
+  */
+  function getSubtraction (firstNumber, secondNumber) {
+    if (firstNumber >= secondNumber) {
+      return firstNumber - secondNumber;
+    }
+    else if (firstNumber < secondNumber) {
+      return secondNumber - firstNumber;
+    }
+  }
+
+  /**
+  * Функция перемножает два числа
+  * @param {number} firstNumber первое число.
+  * @param {number} secondNumber второе число.
+  * @returns {number} возвращает произведение двух чисел.
+  */
+  function getMultiplication (firstNumber, secondNumber) {
+    return firstNumber * secondNumber;
+  }
+
+  /**
+  * Функция делит два числа, первое на второе
+  * @param {number} firstNumber первое число.
+  * @param {number} secondNumber второе число.
+  * @returns {number} возвращает частное.
+  */
+  function getDivision (firstNumber, secondNumber) {
+    return firstNumber / secondNumber;
+  }
+
+  // Проверка
+  console.log("Результат = " + mathOperation(5, 3, "+w") 
+              + "   Проверка значения 5, 3, +w");
+  console.log("Результат = " + mathOperation(5, 3, "+") 
+              + "   Проверка значения 5, 3, +");
+  console.log("Результат = " + mathOperation(5, 3, "-") 
+              + "   Проверка значения 5, 3, -");
+  console.log("Результат = " + mathOperation(5, 3, "*") 
+              + "   Проверка значения 5, 3, *");
+  console.log("Результат = " + mathOperation(5, 3, "/") 
+              + "   Проверка значения 5, 3, /");
+</script>
+</body>
+</html>
