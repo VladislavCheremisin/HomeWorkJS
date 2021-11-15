@@ -29,29 +29,25 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
   * Функция принимать первым аргументом целое положительное число, 
   * в следующих трех аргументах функция принимает слова в разных склонениях.
   * @param {wordsId} wordsId порядковый номер выбираемого слова.
-  * @param {string} firstword первое слов.
-  * @param {string} secondword второе слов.
-  * @param {string} thirdword третье слов.
+  * @param {string} firstWord первое слов.
+  * @param {string} secondWord второе слов.
+  * @param {string} thirdWord третье слов.
   * @returns {string} возвращает подходящее под параметр слово.
   */
-  function declinationOfNumber (wordsId, firstword, secondword, thirdword) {
+  function declinationOfNumber (wordsId, firstWord, secondWord, thirdWord) {
     if (parseInt(wordsId) >= 0 && parseInt(wordsId) < 4) {
       switch (wordsId) {
         case(0):
-        return firstword;
-        break;
+        return firstWord;
         case(1):
-        return firstword;
-        break;
+        return firstWord;
         case(2):
-        return secondword;
-        break;
+        return secondWord;
         case(3):
-        return thirdword;
-        break;
+        return thirdWord;
       }  
     } else if (parseInt(wordsId) >= 4) {
-      return thirdword; 
+      return thirdWord; 
     } else {
       return (NaN);
     }
