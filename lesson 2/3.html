@@ -21,36 +21,32 @@
 <script>
   "use strict";
 
+  const firstNumber = +prompt("Введите число 1");
+  const secondNumber = +prompt("Введите число 2");
+
+  getResult (firstNumber, secondNumber);
+
   /**
   * Функция сравнивает два числа и возвращает результат в зависимости от 
   * результата сравнения, если результат сравнения не подходит условиям, 
   * возвращает false
   * @param {number} firstNumber первое число.
   * @param {number} secondNumber второе число.
-  * @returns {number} число в зависимости от результата сравнения.
-  * @returns {boolean} false если результат сравнения не подходит условиям.
+  * @returns {number|boolean} число в зависимости от результата сравнения, 
+  *                 false если результат сравнения не подходит условиям. 
   */
-
-  const firstNumber = +prompt("Введите число 1");
-  const secondNumber = +prompt("Введите число 2");
-
-  getResult (firstNumber, secondNumber);
-
   function getResult (firstNumber, secondNumber) {
     if (firstNumber > secondNumber) {
       const subtractionOperation = firstNumber - secondNumber;
       return console.log(subtractionOperation);
-    }
-    else if (firstNumber < 0 && secondNumber < 0) {
+    } else if (firstNumber < 0 && secondNumber < 0) {
       const multiplicationOperation = firstNumber * secondNumber;
       return console.log(multiplicationOperation);
-    }
-    else if ((firstNumber < 0 && secondNumber) > 0 || 
+    } else if ((firstNumber < 0 && secondNumber) > 0 || 
               firstNumber > 0 && secondNumber < 0 ) {
       const additionOperation = firstNumber + secondNumber;
       return console.log(additionOperation);
-    }
-    else {
+    } else {
       return false;
     }
   }
