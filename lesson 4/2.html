@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для поста в социальной сети.
+Названия: `PostES5` для es5 стиля и `PostES6` для es6 стиля.
+Пост должен хранить:
+1. Автора поста (имени достаточно).
+2. Текст поста.
+3. Дату и время последнего изменения поста.
+Данные автора поста и текст поста необходимо передавать при создании
+экземпляра объекта.
+Каждому экземпляру объекта должен быть доступен метод `edit`, который будет
+менять текст поста.
+
+---
+
+Необходимо создать функцию-конструктор/класс для закрепленного поста в
+социальной сети.
+Названия: `AttachedPostES5` для es5 стиля и `AttachedPostES6` для es6 стиля.
+Закрепленный пост должен наследоваться от обычного поста.
+Данные автора поста и текст поста необходимо передавать при создании
+экземпляра объекта.
+Закрепленный пост должен иметь свойство `highlighted`, в котором по умолчанию
+будет лежать значение false (это свойство будет обозначать, будет ли наш
+закрепленный пост подсвечен).
+У экземпляров объекта закрепленного поста должен быть метод с названием
+`makeTextHighlighted`, который сделает так, чтобы наш пост стал подсвеченным
+(будет менять свойство `highlighted`).
+
+---
+
+Подсказки:
+1. Задание сложное, советую делать по аналогии с примером на онлайн-занятии.
+2. Обратите внимание что пост хранит "дату и время последнего изменения
+поста", это значит что если пост кто-то изменит (например вызовет какой-то
+метод, который изменит что-то в посте), дата и время последнего изменения
+поста также должна измениться.
+3. Выполняйте все по порядку, не стоит пытаться сделать все сразу, иначе можно
+что-нибудь пропустить.
+4. Если непонятно условие - задайте вопрос.
+-->
+<script>
+  "use strict";
+  // ES5
+  function PostES5(author, textPost) {
+    this.author = author;
+    this.textPost = textPost;
+    this.dateTime = this.getDate();
+  }
+
+  PostES5.prototype.getDate = function () {
+    return new Date();
+  }
+
+  PostES5.prototype.edit = function(textEdit) {
+    this.textPost = textEdit;
+    this.dateTime = this.getDate();
+  }
+
+  // Проверка
+  const post1 = new PostES5("Вася", "Написал текст");
+  console.log(post1);
+  post1.edit("Изменил текст");
+  console.log(post1);
+
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+
+  function AttachedPostES5(author, textPost, highlighted) {
+    PostES5.call(this, author, textPost);
+    this.highlighted = false;
+    this.dateTime = this.getDate();
+  }
+
+  AttachedPostES5.prototype.makeTextHighlighted = function() {
+    if (this.highlighted === true) {
+      this.dateTime = this.getDate();
+      console.log("Пост Attached уже подсвечен");
+    } else {
+        this.dateTime = this.getDate();
+        this.highlighted = true;
+        console.log(this);
+    }
+  }
+
+  // Проверка
+  const AttachedPost1 = new AttachedPostES5("Вася", "Пост Attached");
+  console.log(AttachedPost1);
+  AttachedPost1.makeTextHighlighted();
+  AttachedPost1.makeTextHighlighted();
+  post1.edit("Исправил текст в пост 1");
+  console.log(post1);
+  
+  // ES6
+  class PostES6 {
+    constructor (author, textPost) {
+      this.author = author;
+      this.textPost = textPost;
+      this.dateTime = this.getDate();
+    }
+
+    getDate() {
+      return new Date();
+    }
+
+    edit(textEdit) {
+      this.textPost = textEdit;
+      this.dateTime = this.getDate();
+    }
+  }
+
+  // Проверка
+  const post3 = new PostES6("Соня", "Написала текст");
+  console.log(post3);
+  post3.edit("Соня изменила текст");
+  console.log(post3);
+
+  class AttachedPostES6 extends PostES6 {
+    constructor (author, textPost, highlighted) {
+      super(author, textPost);
+      this.highlighted = false;
+      this.dateTime = this.getDate();
+    }
+
+    makeTextHighlighted() {
+      if (this.highlighted === true) {
+        this.dateTime = this.getDate();
+        console.log("Пост Attached уже подсвечен ES6");
+      } else {
+          this.dateTime = this.getDate();
+          this.highlighted = true;
+          console.log(this);
+      }
+    }
+  }
+
+  // Проверка
+  const AttachedPost2 = new AttachedPostES6("Валюшка", "Пост Attached");
+  console.log(AttachedPost2);
+  AttachedPost2.makeTextHighlighted();
+  AttachedPost2.makeTextHighlighted();
+  post3.edit("Исправил текст в пост 3");
+  console.log(post3);
+</script>
+</body>
+</html>

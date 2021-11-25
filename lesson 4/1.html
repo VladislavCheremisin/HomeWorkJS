@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+<script>
+  "use strict";
+
+  ProductES5
+  function ProductES5(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  ProductES5.prototype.make25Discount = function() {
+    console.log(this.price - this.price * 0.25 + ` - стоимость товара\
+    ${this.name} с учетом скидки 25%`);
+  }
+
+  const product1 = new ProductES5("колбаса", "400");
+  const product2 = new ProductES5("мясо", "600");
+
+  // демонстрация работы с объектом
+  console.log(product1);
+  console.log(product2);
+  console.log(`${product1.name} - наименование первого товара`);
+  console.log(`${product1.price} - цена первого товара`);
+  product1.make25Discount();
+  product2.make25Discount();
+
+
+  // ProductES6
+
+  class ProductES6 {
+    constructor (name, price) {
+      this.name = name;
+      this.price = price;
+    }
+    make25Discount2() {
+      console.log(this.price - this.price * 0.25 + ` - стоимость товара\
+      ${this.name} с учетом скидки 25%`);
+    }
+  }
+
+  const product3 = new ProductES6("рыба", "560");
+  const product4 = new ProductES6("груша", "450");
+
+  console.log(product3);
+  console.log(product4);
+  console.log(`${product3.name} - наименование первого товара ES6`);
+  console.log(`${product3.price} - цена первого товара ES6`);
+  product3.make25Discount2();
+  product4.make25Discount2();
+  console.log(product3);
+
+
+</script>
+</body>
+</html>
