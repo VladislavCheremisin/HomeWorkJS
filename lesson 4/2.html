@@ -58,12 +58,12 @@
 
   PostES5.prototype.getDate = function () {
     return new Date();
-  }
+  };
 
   PostES5.prototype.edit = function(textEdit) {
     this.textPost = textEdit;
     this.dateTime = this.getDate();
-  }
+  };
 
   // Проверка
   const post1 = new PostES5("Вася", "Написал текст");
@@ -80,15 +80,14 @@
   }
 
   AttachedPostES5.prototype.makeTextHighlighted = function() {
-    if (this.highlighted === true) {
-      this.dateTime = this.getDate();
+    if (this.highlighted) {
       console.log("Пост Attached уже подсвечен");
     } else {
         this.dateTime = this.getDate();
         this.highlighted = true;
         console.log(this);
     }
-  }
+  };
 
   // Проверка
   const AttachedPost1 = new AttachedPostES5("Вася", "Пост Attached");
