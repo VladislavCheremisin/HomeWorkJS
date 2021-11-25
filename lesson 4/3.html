@@ -41,9 +41,9 @@
   function getDigitsOfNumber(digit) {
     if (Number.isInteger(digit) && digit >= 0 && digit < 1000) {
       const obj = {
-          units : parseInt(digit % 10 / 1),
-          dozens : parseInt(digit % 100 / 10),
-          hundreds : parseInt(digit % 1000 / 100),
+          units : Number.parseInt(digit % 10 / 1),
+          dozens : Number.parseInt(digit % 100 / 10),
+          hundreds : Number.parseInt(digit % 1000 / 100),
       }
       return obj; 
     } else {
