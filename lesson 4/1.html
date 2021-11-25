@@ -20,19 +20,20 @@
 <script>
   "use strict";
 
-  ProductES5
+  // ProductES5
   function ProductES5(name, price) {
     this.name = name;
     this.price = price;
   }
 
   ProductES5.prototype.make25Discount = function() {
-    console.log(this.price - this.price * 0.25 + ` - стоимость товара\
-    ${this.name} с учетом скидки 25%`);
+    this.price -= this.price * 0.25;
+    console.log(`${this.price}  - стоимость товара ${this.name} с учетом скидки\
+    25%`);
   }
 
-  const product1 = new ProductES5("колбаса", "400");
-  const product2 = new ProductES5("мясо", "600");
+  const product1 = new ProductES5("колбаса", 400);
+  const product2 = new ProductES5("мясо", 600);
 
   // демонстрация работы с объектом
   console.log(product1);
@@ -51,13 +52,14 @@
       this.price = price;
     }
     make25Discount2() {
-      console.log(this.price - this.price * 0.25 + ` - стоимость товара\
-      ${this.name} с учетом скидки 25%`);
+      this.price -= this.price * 0.25;
+      console.log(`${this.price}  - стоимость товара ${this.name} с учетом\
+      скидки 25%`);
     }
   }
 
-  const product3 = new ProductES6("рыба", "560");
-  const product4 = new ProductES6("груша", "450");
+  const product3 = new ProductES6("рыба", 560);
+  const product4 = new ProductES6("груша", 450);
 
   console.log(product3);
   console.log(product4);
