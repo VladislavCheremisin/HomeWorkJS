@@ -85,6 +85,12 @@
         console.log(`Класс "super_element"
         отсутствует в элементе "${event.target.tagName.toLowerCase()}"`);
       }
+
+    // Более правильный вариант 
+    const containStr = event.target.classList
+                    .contains('super_element') ? 'присутствует' : 'отсутствует';
+    console.log(`Класс "super_element" ${containStr} в элементе 
+                                     "${event.target.tagName.toLowerCase()}".`);
   });
 
   /*
