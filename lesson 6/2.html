@@ -65,9 +65,10 @@
   должно моментально отображаться в span. То есть при печати в input'е тег span
   также должен меняться.
   */
+  const spanEl = document.querySelector("span");
   const inputEl = document.querySelector("#from");
   inputEl.addEventListener('input', () => { 
-    document.querySelector("span").textContent = inputEl.value;
+    spanEl.textContent = inputEl.value;
   });
 
   /*
@@ -76,8 +77,8 @@
   1) добавить два класса: animate__animated и animate__fadeInLeftBig
   2) поставить данному элементу стиль visibility в значение 'visible'.
    */
+  const messageEl = document.querySelector(".message");
   document.querySelector(".messageBtn").addEventListener('click', () => { 
-    const messageEl = document.querySelector(".message");
     messageEl.classList.add('animate__animated', 'animate__fadeInLeftBig');
     messageEl.style.visibility = "visible";
   });
@@ -97,19 +98,19 @@
   // Уже получили выше const inputEl =  document.querySelector("#from");
   const inputEl2 = document.querySelectorAll(".form-control")[0];
   const inputEl3 = document.querySelectorAll(".form-control")[1];
+  const formEl = document.querySelector("form");
 
-  document.querySelector("form").addEventListener('input', event => {
+  formEl.addEventListener('input', event => {
     const targetEl = event.target;
     if (event.target.tagName === "INPUT" || event.target.tagName === "SELECT") {         
       if (targetEl.value.length > 0 || event.target.value === 0) {
         targetEl.classList.remove("error");
       } else {
         targetEl.classList.add("error");
-      };
+      }
     }
   });
 
-  const formEl = document.querySelector("form");
   const inputEls= formEl.querySelectorAll("input , select");
   document.querySelector("form").addEventListener('submit', event => {
     inputEls.forEach(inputEl => {

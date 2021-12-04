@@ -43,14 +43,14 @@
   1. Установите всем элементам с классом "productName" размер шрифта 24px.
    */
   document.querySelectorAll(".productName")
-                          .forEach(element => element.style.fontSize = "24px");
+    .forEach(element => element.style.fontSize = "24px");
   //  
 
   /*
   2. Установите всем элементам с классом "product" внешний отступ справа 50px.
    */
   document.querySelectorAll(".product")
-                        .forEach(element => element.style.marginRight = "50px");
+    .forEach(element => element.style.marginRight = "50px");
 
   /*
   3. При клике на кнопку "В корзину" название кнопки должно поменяться на
@@ -59,9 +59,9 @@
   document.addEventListener('click', event => {
     const targetEl = event.target;
       if (event.target.tagName === "BUTTON") {         
-      targetEl.innerHTML = "Добавлено";
-      targetEl.disabled = true;
-      };
+        targetEl.innerHTML = "Добавлено";
+        targetEl.disabled = true;
+      }
     });
   
   /*
