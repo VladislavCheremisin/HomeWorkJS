@@ -51,14 +51,14 @@
       arrNumber.splice(indexEl, 1);
       arrNumber.splice(i, 0, result);
     }
-    return arrNumber;
+    return arrNumber.join('');
   };
 
   // Вариант использования метода
   function sortArr(g) {
     const digits = g.toString().split('');
     digits.sort((a, b) => b - a);
-    return digits;
+    return digits.join('');
   }
 
   // Проверка скорости работы скриптов
