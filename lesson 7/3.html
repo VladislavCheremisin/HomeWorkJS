@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Необязательное задание.
+
+Ваша задача - создать функцию, которая может принимать любое неотрицательное
+целое число в качестве аргумента и возвращать число с теми же цифрами, но в
+порядке убывания.
+Если проще - переставьте цифры, чтобы получить максимально возможное число из
+данного набора цифр.
+-->
+<script>
+  "use strict";
+
+  /**
+   * Функция перемещает цифры получая наибольшее число.
+   * @param {number} n - Число, из цифр которого нужно составить наибольшее
+   * возможное число с теми же цифрами.
+   * @returns {number} - Набольшее число из набора цифр числа, переданного в
+   * параметр "n"
+   */
+  // Один из вариантов рукописки
+  function descendingOrder(n) {
+    const arrNumber = n.toString().split('');
+    const light = arrNumber.length;
+    let indexEl;
+    let first;
+    let second;
+    let result;
+    let i;
+    let j;
+    for (i = 0; i < light; i++) {
+      result = arrNumber[i];
+      first = arrNumber[i];
+      j = i;
+      for (j; j < light; j++) {
+        second = arrNumber[j];
+        if (first >= result && first >= second) {
+          result = arrNumber[i];
+          indexEl = i;
+        } else if (result < second) {
+            result = arrNumber[j];
+            indexEl = j; 
+        } 
+      }  
+      arrNumber.splice(indexEl, 1);
+      arrNumber.splice(i, 0, result);
+    }
+    return arrNumber;
+  };
+
+  // Вариант использования метода
+  function sortArr(g) {
+    const digits = g.toString().split('');
+    digits.sort((a, b) => b - a);
+    return digits;
+  }
+
+  // Проверка скорости работы скриптов
+  const iterations = 100000;
+  console.time('descendingOrder');
+  for(let i = 0; i < iterations; i++ ) {
+    descendingOrder(1234567897777232);
+  };
+  console.timeEnd('descendingOrder')
+
+  console.time('sortArr');
+  for(let i = 0; i < iterations; i++ ) {
+    sortArr(1234567897777232);
+  };
+  console.timeEnd('sortArr')
+
+  console.log(descendingOrder(1234567897777232)); 
+  console.log(sortArr(1234567897777232)); 
+</script>
+</body>
+</html>

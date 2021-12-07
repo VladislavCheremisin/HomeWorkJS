@@ -63,18 +63,16 @@
   const linkEls = document.querySelectorAll('.nav-link');
   const tabsEl = document.querySelector('.nav-tabs');
   const textEl = document.querySelector('.text');
-
   tabsEl.addEventListener('click', event => { 
+    const sctivEl =  document.querySelector('.active');
     if (event.target.tagName === "A" && 
        !event.target.classList.contains('active')) {
-          linkEls.forEach(element => { 
-          element.classList.remove('active');
-          });
-      event.target.classList.add('active');
-      //добавляем текст
-      const dataAttrEl = event.target.parentElement.getAttribute('data-text');
-      textEl.textContent = panelText[dataAttrEl];
-    }
+      sctivEl.classList.remove('active');
+    };
+    event.target.classList.add('active');
+    //добавляем текст
+    const dataAttrEl = event.target.parentElement.getAttribute('data-text');
+    textEl.textContent = panelText[dataAttrEl];
   });
   
   /*
@@ -84,12 +82,11 @@
   перетаскивании ползунка.
    */
   const inputRangeEl = document.querySelector('input[type="range"]');
-  const textСhangeEl = document.querySelector('#inputDiv');
-
-  inputRangeEl.addEventListener("input", () => {            
-      textСhangeEl.style.fontSize = inputRangeEl.value / 2 + 'px'           
+  const textChangeEl = document.querySelector('#inputDiv');
+  inputRangeEl.value =  parseInt(window.getComputedStyle(textChangeEl).fontSize);
+  inputRangeEl.addEventListener("input", () => {   
+    textChangeEl.style.fontSize = inputRangeEl.value + 'px';         
   });
-
 </script>
 </body>
 </html>
